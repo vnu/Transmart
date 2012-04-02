@@ -1,11 +1,16 @@
 package com.android.transmart;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
 import android.os.PowerManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class AppService extends IntentService{
 	
@@ -13,6 +18,7 @@ public class AppService extends IntentService{
 	private static PowerManager.WakeLock lockStatic = null;
 	public static final String LOCK_NAME_STATIC_WIFI="com.android.transmart.AppService.StaticWifi";
 	private static WifiManager.WifiLock lockStaticWifi = null;
+	private static Handler handler;
 
 
 	public AppService(String name) {
@@ -28,6 +34,7 @@ public class AppService extends IntentService{
 		getLock(context).acquire();
 		getWifiLock(context).acquire();
 		Log.i(Util.TAG,"AppService : WIFI LOCK and PARTIAL WAKE LOCK SET");
+		handler = new Handler();
 	}
 	
 	synchronized private static PowerManager.WakeLock getLock(Context context) {
@@ -55,6 +62,14 @@ public class AppService extends IntentService{
 		// TODO Auto-generated method stub
 		try {
 			Log.i(Util.TAG,"ALL WORK IS GONNA BE DONE HERE");
+			final String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+			handler.post(new Runnable() {  
+				   @Override  
+				   public void run() {  
+				      Toast.makeText(getApplicationContext(), currentDateTimeString, Toast.LENGTH_SHORT).show();  
+				   }  
+				});  
+						
 		} finally {
 			getWifiLock(this).release();
 			getLock(this).release();

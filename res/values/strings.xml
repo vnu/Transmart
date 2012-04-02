@@ -8,5 +8,6 @@
     <string name="downldmgr">Download Manager</string>
     <string name="home">Home</string>
     <string name="strtservice">Set Service Timer</string>
+    <string name="timermin">Set Timer Minutes</string>
 
 </resources>
