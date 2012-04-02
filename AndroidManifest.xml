@@ -5,6 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="10" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -18,6 +26,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         
+         
+         <activity android:name=".MyService"></activity>
+         <receiver android:name="MyServiceReceiver"></receiver>
+         <service android:name=".TransmartService"></service>
+         <service android:name=".AppService"></service>
+         
+         
+         <activity android:name=".AddDownload"></activity>
+         <activity android:name=".DownldMgr"></activity>
+         <activity android:name=".LocateMe"></activity>
+         <activity android:name=".MyNetwork"></activity>
     </application>
 
 </manifest>

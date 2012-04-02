@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, TransmartActivity!</string>
+    <string name="hello">TRANSMART</string>
     <string name="app_name">Transmart</string>
+    <string name="service">Service</string>
+    <string name="download">Add Downloads</string>
+    <string name="downldmgr">Download Manager</string>
+    <string name="home">Home</string>
+    <string name="strtservice">Set Service Timer</string>
 
 </resources>
