@@ -21,4 +21,10 @@ public class TransmartActivity extends Activity {
     	Intent myIntent = new Intent(view.getContext(), MyService.class);
         startActivityForResult(myIntent, 0);
     }
+    
+    public void addDownload(View view){
+    	Intent myIntent = new Intent(view.getContext(), AddDownloads.class);
+        startActivityForResult(myIntent, 0);
+    	
+    }
 }

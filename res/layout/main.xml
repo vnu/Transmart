@@ -24,6 +24,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:onClick="addDownload"
         android:text="@string/download" />
     <Button
         android:id="@+id/downldmgr"

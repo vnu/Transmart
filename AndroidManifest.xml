@@ -34,7 +34,10 @@
          <service android:name=".AppService"></service>
          
          
-         <activity android:name=".AddDownload"></activity>
+         <activity android:name=".AddDownloads"
+             android:label="@string/app_name"
+             android:theme="@android:style/Theme.NoTitleBar"
+             ></activity>
          <activity android:name=".DownldMgr"></activity>
          <activity android:name=".LocateMe"></activity>
          <activity android:name=".MyNetwork"></activity>

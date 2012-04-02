@@ -14,8 +14,7 @@ public class TransmartService extends Service {
 	
 	
 	public void onCreate(){
-		Log.i(Util.TAG,"Transmart Service : OnCreate()");
-		
+		Log.i(Util.TAG,"Transmart Service : OnCreate()");		
 		
 	}
 	

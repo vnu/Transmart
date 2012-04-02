@@ -30,6 +30,7 @@ public class AppService extends IntentService{
 		super("AppService");
 	}
 	
+	//We Acquire both the Partial and WIFI Wakelock 
 	public static void acquireStaticLock(Context context) {
 		getLock(context).acquire();
 		getWifiLock(context).acquire();
@@ -37,6 +38,7 @@ public class AppService extends IntentService{
 		handler = new Handler();
 	}
 	
+	//Creating Partial Wakelock and returning wakelock context
 	synchronized private static PowerManager.WakeLock getLock(Context context) {
 		if (lockStatic == null) {
 			Log.i(Util.TAG,"AppService : PARTIAL WAKELOCK");
@@ -47,6 +49,7 @@ public class AppService extends IntentService{
 		return(lockStatic);
 	}
 	
+	//Creating WIFI Wakelock and returning wakelock context
 	synchronized private static WifiManager.WifiLock getWifiLock(Context context) {
 		if (lockStaticWifi == null) {
 			Log.i(Util.TAG,"AppService : WIFI LOCK");
@@ -71,6 +74,7 @@ public class AppService extends IntentService{
 				});  
 						
 		} finally {
+			//Releasing both the wake Locks
 			getWifiLock(this).release();
 			getLock(this).release();
 			Log.i(Util.TAG,"On Handle Intent finally : Locks Released");
