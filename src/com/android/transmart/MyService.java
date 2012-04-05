@@ -23,6 +23,7 @@ public class MyService extends Activity{
 		Intent sIntent = new Intent(this,TransmartService.class);
 		sIntent.putExtras(bundle);
 		startService(sIntent);
+		
 	}
 	public void toTransmartHome(View view){
 		Intent intent = new Intent();
