@@ -69,15 +69,15 @@ public class AppService extends IntentService{
 	public void currentLocation(Intent intent){
 		LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000*30*1,0,locationlistener);
+		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000*60*1,100,locationlistener);
 		
 		if (location != null) {
             double lat = location.getLatitude();
             double lng = location.getLongitude();
             String latitude=String.valueOf(lat);
 			String longitude=String.valueOf(lng);
-            locDetails = "Lat:" + latitude + "\nLong:" + longitude;
-            Log.i(Util.TAG,"on Get Position: "+locDetails);
+            locDetails = "Lat:" + latitude + " Long:" + longitude;
+            Log.i(Util.TAG,"on Current Location: "+locDetails);
         }
 		
 		
@@ -93,6 +93,7 @@ public class AppService extends IntentService{
 		//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationlistener);
 		//locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000*30*1,0,locationlistener);
 		// Initialize the location fields
+		locationManager.removeUpdates(locationlistener);
 	}
 	
 	private final LocationListener locationlistener = new LocationListener() {
@@ -132,7 +133,7 @@ public class AppService extends IntentService{
 		            double lng = location.getLongitude();
 		            String latitude=String.valueOf(lat);
 					String longitude=String.valueOf(lng);
-		            locDetails = "Lat:" + latitude + "\nLong:" + longitude;
+		            locDetails = "Lat:" + latitude + "Long:" + longitude;
 		            Log.i(Util.TAG,"on Get Position: "+locDetails);
 		        } else {
 		            locDetails = "No location found";
@@ -155,6 +156,8 @@ public class AppService extends IntentService{
 			currentLocation(intent);
 			String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
 			final String Text = currentDateTimeString+" "+locDetails;
+			Log.i(Util.TAG,"On Handle Intent:"+Text);
+			
 			handler.post(new Runnable() {  
 				   @Override  
 				   public void run() {  
