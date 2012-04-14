@@ -9,6 +9,14 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
+/**
+ * @author Vnu
+ * 
+ * This is the Transmart Service that is triggered by the Start Service button in MyService.
+ * There is a repeating Alarm  set with RTC_WAKEUP in the service OnStartCommand that is set by the minutes passed from MyService.
+ * It sends a pending intent to MyServiceReceiver.
+ *
+ */
 public class TransmartService extends Service {
 	private int minutes;
 	
@@ -20,6 +28,11 @@ public class TransmartService extends Service {
 	
 	
 	
+	/* (non-Javadoc)
+	 * @see android.app.Service#onStartCommand(android.content.Intent, int, int)
+	 * 
+	 * This overrride method sets the Repeating Alarm with RTC_WAKEUP and passes an Intent to MyServiceRecevier 
+	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Log.i(Util.TAG,"TransmartService : OnStartCOmmand()");

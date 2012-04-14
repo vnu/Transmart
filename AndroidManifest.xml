@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="10" />
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="15"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
     
@@ -31,7 +30,7 @@
             </intent-filter>
         </activity>
          
-         
+         <!-- Running Service that wakes up the device every fixed amount of time -->
          <activity android:name=".MyService"></activity>
          <receiver android:name="MyServiceReceiver"></receiver>
          <service android:name=".TransmartService"></service>
@@ -40,10 +39,16 @@
          
          <activity android:name=".AddDownloads"
              android:label="@string/app_name"
-             android:theme="@android:style/Theme.NoTitleBar"
-             ></activity>
+             android:theme="@android:style/Theme.NoTitleBar"></activity>
+         
+         
          <activity android:name=".DownldMgr"></activity>
+         
+         <!-- Location Related Work -->
          <activity android:name=".LocateMe"></activity>
+         <activity android:name=".location.LocationActivity"></activity>
+         
+         
          <activity android:name=".MyNetwork"></activity>
     </application>
 

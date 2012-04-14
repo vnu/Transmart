@@ -15,12 +15,14 @@ public final class R {
     }
     public static final class id {
         public static final int browser=0x7f050000;
-        public static final int downldmgr=0x7f050004;
-        public static final int download=0x7f050003;
+        public static final int downldmgr=0x7f050005;
+        public static final int download=0x7f050004;
         public static final int home=0x7f050001;
-        public static final int service=0x7f050002;
-        public static final int strtService=0x7f050006;
-        public static final int timer=0x7f050005;
+        public static final int locateme=0x7f050006;
+        public static final int locationActivity=0x7f050002;
+        public static final int service=0x7f050003;
+        public static final int strtService=0x7f050008;
+        public static final int timer=0x7f050007;
     }
     public static final class layout {
         public static final int downldmgr=0x7f030000;
@@ -36,6 +38,8 @@ public final class R {
         public static final int download=0x7f040003;
         public static final int hello=0x7f040000;
         public static final int home=0x7f040005;
+        public static final int locateme=0x7f040008;
+        public static final int locationActivity=0x7f040009;
         public static final int service=0x7f040002;
         public static final int strtservice=0x7f040006;
         public static final int timermin=0x7f040007;

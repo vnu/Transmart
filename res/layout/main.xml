@@ -32,5 +32,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/downldmgr" />
+     <Button
+        android:id="@+id/locateme"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="locateMe"
+        android:text="@string/locateme" />
+
+    
 
 </LinearLayout>

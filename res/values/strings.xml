@@ -9,5 +9,7 @@
     <string name="home">Home</string>
     <string name="strtservice">Set Service Timer</string>
     <string name="timermin">Set Timer Minutes</string>
+    <string name="locateme">Locate Me</string>
+    <string name="locationActivity">Location Activity</string>
 
 </resources>
