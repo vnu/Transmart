@@ -28,14 +28,21 @@ public class TransmartActivity extends Activity {
 		startActivityForResult(myIntent, 0);
 	}
 	
-	public void locateMe(View view) {
-		Intent myIntent = new Intent(view.getContext(), LocateMe.class);
-		startActivityForResult(myIntent, 0);
-	}
-
 	public void addDownload(View view) {
 		Intent myIntent = new Intent(view.getContext(), AddDownloads.class);
 		startActivityForResult(myIntent, 0);
 
+	}
+	
+	/**
+	 * Method called by Locate Me on Click.
+	 * Calls the LocationActivity class. This classes defines and performs the various operations
+	 * associated with user location.
+	 * @param view
+	 * 
+	 */
+	public void locateMe(View view) {
+		Intent myIntent = new Intent(view.getContext(), LocateMe.class);
+		startActivityForResult(myIntent, 0);
 	}
 }

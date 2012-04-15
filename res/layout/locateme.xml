@@ -7,14 +7,115 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
-    <Button
-        android:id="@+id/locationActivity"
+        android:text="@string/locateme"
+        android:textSize="20dp"
+        android:textColor="#00BFFF"
+        android:gravity="center_horizontal" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*" >
+
+        <View
+            android:layout_height="2dip"
+            android:background="#006400" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_span="1"
+                android:padding="1dip"
+                android:text="@string/currLoc" />
+
+            <TextView
+                android:layout_span="4"
+                android:gravity="left"
+                android:hint="@string/none"
+                android:padding="1dip" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_span="1"
+                android:padding="1dip"
+                android:text="@string/lat" />
+
+            <TextView
+                android:layout_span="4"
+                android:gravity="left"
+                android:hint="@string/none"
+                android:padding="1dip" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_span="1"
+                android:padding="1dip"
+                android:text="@string/lng" />
+
+            <TextView
+                android:layout_span="4"
+                android:gravity="left"
+                android:hint="@string/none"
+                android:padding="1dip" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_span="1"
+                android:padding="1dip"
+                android:text="@string/accuracy" />
+
+            <TextView
+                android:layout_span="4"
+                android:gravity="left"
+                android:hint="@string/none"
+                android:padding="1dip" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_span="1"
+                android:padding="1dip"
+                android:text="@string/altitude" />
+
+            <TextView
+                android:layout_span="4"
+                android:gravity="left"
+                android:hint="@string/none"
+                android:padding="1dip" />
+        </TableRow>
+
+        <View
+            android:layout_height="2dip"
+            android:background="#006400" />
+    </TableLayout>
+    
+     <Button
+        android:id="@+id/maps"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:onClick="startLocationActivity"
-        android:text="@string/locationActivity" />
+        android:text="@string/maps" />
+     
+      <Button
+        android:id="@+id/locale"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/locale" />
+      
+       <Button
+        android:id="@+id/profiler"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/profiler" />
 
     <Button
         android:id="@+id/home"

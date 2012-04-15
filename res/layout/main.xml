@@ -7,9 +7,10 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="@string/hello"
-        android:textSize="20dp"
-        android:gravity="center_horizontal" />
+        android:textColor="#00CED1"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/service"
@@ -18,7 +19,7 @@
         android:layout_margin="10dp"
         android:onClick="myService"
         android:text="@string/service" />
-    
+
     <Button
         android:id="@+id/download"
         android:layout_width="fill_parent"
@@ -26,20 +27,20 @@
         android:layout_margin="10dp"
         android:onClick="addDownload"
         android:text="@string/download" />
+
     <Button
         android:id="@+id/downldmgr"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/downldmgr" />
-     <Button
+
+    <Button
         android:id="@+id/locateme"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="locateMe"
         android:text="@string/locateme" />
-
-    
 
 </LinearLayout>

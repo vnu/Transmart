@@ -10,6 +10,14 @@
     <string name="strtservice">Set Service Timer</string>
     <string name="timermin">Set Timer Minutes</string>
     <string name="locateme">Locate Me</string>
-    <string name="locationActivity">Location Activity</string>
+    <string name="currLoc">Location : </string>
+    <string name="lat">Latitude : </string>
+    <string name="lng">Longitude : </string>
+    <string name="accuracy">Accuracy : </string>
+    <string name="altitude">Altitude : </string>
+    <string name="none">[NONE]</string>
+    <string name="maps">Google Maps</string>
+    <string name="locale">Nearby Places</string>
+    <string name="profiler">Add Profile</string>
 
 </resources>
