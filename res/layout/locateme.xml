@@ -1,128 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
 
-    <TextView
-        android:layout_width="fill_parent"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/locateme"
-        android:textSize="20dp"
-        android:textColor="#00BFFF"
-        android:gravity="center_horizontal" />
+        android:orientation="vertical" >
 
-    <TableLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/locateme"
+            android:textColor="#00BFFF"
+            android:textSize="20dp" />
 
-        <View
-            android:layout_height="2dip"
-            android:background="#006400" />
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:stretchColumns="*" >
 
-        <TableRow>
+            <View
+                android:layout_height="2dip"
+                android:background="#006400" />
 
-            <TextView
-                android:layout_span="1"
-                android:padding="1dip"
-                android:text="@string/currLoc" />
+            <TableRow>
 
-            <TextView
-                android:layout_span="4"
-                android:gravity="left"
-                android:hint="@string/none"
-                android:padding="1dip" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/currentLoc"
+                    android:layout_span="1"
+                    android:padding="1dip"
+                    android:text="@string/currLoc" />
 
-        <TableRow>
+                <TextView
+                    android:layout_span="4"
+                    android:gravity="left"
+                    android:hint="@string/none"
+                    android:padding="1dip" />
+            </TableRow>
 
-            <TextView
-                android:layout_span="1"
-                android:padding="1dip"
-                android:text="@string/lat" />
+            <TableRow>
 
-            <TextView
-                android:layout_span="4"
-                android:gravity="left"
-                android:hint="@string/none"
-                android:padding="1dip" />
-        </TableRow>
+                <TextView
+                    android:layout_span="1"
+                    android:padding="1dip"
+                    android:text="@string/lat" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/latitude"
+                    android:layout_span="4"
+                    android:gravity="left"
+                    android:hint="@string/none"
+                    android:padding="1dip" />
+            </TableRow>
 
-            <TextView
-                android:layout_span="1"
-                android:padding="1dip"
-                android:text="@string/lng" />
+            <TableRow>
 
-            <TextView
-                android:layout_span="4"
-                android:gravity="left"
-                android:hint="@string/none"
-                android:padding="1dip" />
-        </TableRow>
+                <TextView
+                    android:layout_span="1"
+                    android:padding="1dip"
+                    android:text="@string/lng" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/longitude"
+                    android:layout_span="4"
+                    android:gravity="left"
+                    android:hint="@string/none"
+                    android:padding="1dip" />
+            </TableRow>
 
-            <TextView
-                android:layout_span="1"
-                android:padding="1dip"
-                android:text="@string/accuracy" />
+            <TableRow>
 
-            <TextView
-                android:layout_span="4"
-                android:gravity="left"
-                android:hint="@string/none"
-                android:padding="1dip" />
-        </TableRow>
+                <TextView
+                    android:layout_span="1"
+                    android:padding="1dip"
+                    android:text="@string/accuracy" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/accuracy"
+                    android:layout_span="4"
+                    android:gravity="left"
+                    android:hint="@string/none"
+                    android:padding="1dip" />
+            </TableRow>
 
-            <TextView
-                android:layout_span="1"
-                android:padding="1dip"
-                android:text="@string/altitude" />
+            <TableRow>
 
-            <TextView
-                android:layout_span="4"
-                android:gravity="left"
-                android:hint="@string/none"
-                android:padding="1dip" />
-        </TableRow>
+                <TextView
+                    android:layout_span="1"
+                    android:padding="1dip"
+                    android:text="@string/altitude" />
 
-        <View
-            android:layout_height="2dip"
-            android:background="#006400" />
-    </TableLayout>
-    
-     <Button
-        android:id="@+id/maps"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/maps" />
-     
-      <Button
-        android:id="@+id/locale"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/locale" />
-      
-       <Button
-        android:id="@+id/profiler"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="@string/profiler" />
+                <TextView
+                    android:id="@+id/altitude"
+                    android:layout_span="4"
+                    android:gravity="left"
+                    android:hint="@string/none"
+                    android:padding="1dip" />
+            </TableRow>
 
-    <Button
-        android:id="@+id/home"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:onClick="toTransmartHome"
-        android:text="@string/home" />
+            <View
+                android:layout_height="2dip"
+                android:background="#006400" />
+        </TableLayout>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/maps"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="@string/maps" />
+
+        <Button
+            android:id="@+id/locale"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:onClick="nearbyPlaces"
+            android:text="@string/locale" />
+
+        <Button
+            android:id="@+id/profiler"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:text="@string/profiler" />
+
+        <Button
+            android:id="@+id/home"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
+            android:onClick="toTransmartHome"
+            android:text="@string/home" />
+    </LinearLayout>
+
+</ScrollView>

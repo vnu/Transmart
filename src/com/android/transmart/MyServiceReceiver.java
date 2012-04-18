@@ -12,6 +12,15 @@ public class MyServiceReceiver extends BroadcastReceiver{
 		// TODO Auto-generated method stub
 		Log.i(Util.TAG,"MyServiceReceiver : on Receive()");
 		AppService.acquireStaticLock(context);
+		/*GBLastLocFinder lastloc = new GBLastLocFinder(context);
+		Location location=lastloc.getLastBestLocation(1, 1000*15);
+		double lat = location.getLatitude();
+		double lng = location.getLongitude();
+		String latitude = String.valueOf(lat);
+		String longitude = String.valueOf(lng);
+		String locDetails = "Lat:" + latitude + "Long:" + longitude;
+		Log.i(Util.TAG, "on receiver: " + locDetails);*/
+		
 		context.startService(new Intent(context,AppService.class));		
 	}
 

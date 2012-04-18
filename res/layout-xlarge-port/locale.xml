@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+  <!--   <RelativeLayout
+      android:layout_margin="5dp"
+      android:layout_width="fill_parent" 
+      android:layout_height="fill_parent"
+      android:layout_weight="3">   
+      <fragment class="com.android.transmart.UI.fragments.CheckinFragment" 
+        android:id="@+id/checkin_fragment"  
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+      </fragment>
+      <fragment class="com.android.transmart.UI.fragments.PlaceListFragment"
+	    android:id="@+id/list_fragment"
+	    android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"
+        android:layout_below="@id/checkin_fragment"/>
+    </RelativeLayout>
+    <FrameLayout
+      android:id="@+id/detail_fragment_container"
+      android:layout_margin="5dp"
+      android:layout_width="fill_parent" 
+      android:layout_height="fill_parent"
+      android:layout_weight="2">
+      <fragment class="com.android.transmart.UI.fragments.PlaceDetailFragment"
+        android:id="@+id/detail_fragment"
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent"
+      /> 
+    </FrameLayout>-->
+</LinearLayout>

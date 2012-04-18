@@ -19,5 +19,9 @@
     <string name="maps">Google Maps</string>
     <string name="locale">Nearby Places</string>
     <string name="profiler">Add Profile</string>
+    <string name="refresh">Refresh</string>
+    <string name="checkin_text">Checked in to </string>
+    <string name="checkin_button_text">Checkin</string>
+    <string name="backup_manager_key">AEdPqrEAAAAINaafOrzqzhvNSv76hEZf8nUnE8gnYiU14qkcwQ</string>
 
 </resources>

@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +27,7 @@ public class AppService extends IntentService {
 	private static Handler handler = null;
 	private String locDetails;
 	private LocationManager locationManager;
+	
 
 	public AppService(String name) {
 		super(name);
@@ -54,6 +57,7 @@ public class AppService extends IntentService {
 	synchronized private static PowerManager.WakeLock getLock(Context context) {
 		if (lockStatic == null) {
 			Log.i(Util.TAG, "AppService : PARTIAL WAKELOCK");
+			
 			PowerManager mgr = (PowerManager) context
 					.getSystemService(Context.POWER_SERVICE);
 			lockStatic = mgr.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
@@ -82,24 +86,48 @@ public class AppService extends IntentService {
 		}
 		return (lockStaticWifi);
 	}
+	/*public void currentLocation(Intent intent) {
+		GBLastLocFinder lastloc = new GBLastLocFinder(getBaseContext());
+		Location location=lastloc.getLastBestLocation(0, 1000*30);
+		double lat = location.getLatitude();
+		double lng = location.getLongitude();
+		float acc=location.getAccuracy();
+		String latitude = String.valueOf(lat);
+		String longitude = String.valueOf(lng);
+		String accur = String.valueOf(acc);
+		locDetails = "Lat: " + latitude + " Long: " + longitude+ " Accuracy: "+accur;
+		Log.i(Util.TAG, "on receiver: " + locDetails);
+	}*/
 
 	public void currentLocation(Intent intent) {
 		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		Location location = locationManager
-				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		locationManager.requestLocationUpdates(
-				LocationManager.NETWORK_PROVIDER, 0, 0, locationlistener);
+		ConnectivityManager connManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+		NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+		Location location;
+
+		if (mWifi.isConnected()) {
+			
+			location = locationManager
+					.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+			locationManager.requestLocationUpdates(
+					LocationManager.NETWORK_PROVIDER, 0, 0, locationlistener);
+			Log.i(Util.TAG,"In Current Location, using Network");
+		    // Do whatever
+		}
+		else{
+			location = locationManager
+					.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			
+			locationManager.requestLocationUpdates(
+					LocationManager.GPS_PROVIDER, 0, 0, locationlistener);
+			Log.i(Util.TAG,"In Current Location, using GPS");
+		}
+		
+		
 		getPosition(location);
 		locationManager.removeUpdates(locationlistener);
 
-		// Define the criteria how to select the locatioin provider -> use
-		// default
-		/*
-		 * Criteria criteria = new Criteria(); provider =locationManager.getBestProvider(criteria, false); 
-		 * Location location =locationManager.getLastKnownLocation(provider);
-		 * locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationlistener);
-		 * locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000*30*1,0,locationlistener);
-		 */
+		
 		// Initialize the location fields
 
 	}
@@ -142,7 +170,17 @@ public class AppService extends IntentService {
 			double lng = location.getLongitude();
 			String latitude = String.valueOf(lat);
 			String longitude = String.valueOf(lng);
-			locDetails = "Lat:" + latitude + "Long:" + longitude;
+			float acc=location.getAccuracy();
+			double altitude=location.getAltitude();
+			String alt = String.valueOf(altitude);
+			String accur = String.valueOf(acc);
+			TransmartService.latitude=latitude;
+			TransmartService.longitude=longitude;
+			TransmartService.accuracy = accur;
+			TransmartService.altitude=alt;
+		locDetails = "Lat: " + latitude + " Long: " + longitude+ " Accuracy: "+accur;
+		//Log.i(Util.TAG, "on receiver: " + locDetails);
+			//locDetails = "Lat:" + latitude + "Long:" + longitude;
 			Log.i(Util.TAG, "on Get Position: " + locDetails);
 		} else {
 			locDetails = "No location found";
@@ -155,6 +193,7 @@ public class AppService extends IntentService {
 		try {
 			Log.i(Util.TAG, "ALL WORK IS GONNA BE DONE HERE");
 			currentLocation(intent);
+			
 			String currentDateTimeString = DateFormat.getDateTimeInstance()
 					.format(new Date());
 			final String Text = currentDateTimeString + " " + locDetails;
@@ -165,7 +204,7 @@ public class AppService extends IntentService {
 				@Override
 				public void run() {
 					Toast.makeText(getApplicationContext(), Text,
-							Toast.LENGTH_SHORT).show();
+							Toast.LENGTH_LONG).show();
 				}
 			});
 			// Shows a Toast of current time. For test purpose

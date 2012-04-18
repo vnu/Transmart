@@ -40,7 +40,8 @@ public class GBLastLocFinder implements ILastLocationFinder {
 		// The calling Activity will likely (or have already) request ongoing
 		// updates using the Fine location provider.
 		criteria = new Criteria();
-		criteria.setAccuracy(Criteria.ACCURACY_LOW);
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
+		// criteria.setAccuracy(Criteria.ACCURACY_LOW);
 
 		// Construct the Pending Intent that will be broadcast by the one shot
 		// location update.
@@ -66,39 +67,41 @@ public class GBLastLocFinder implements ILastLocationFinder {
 	 * @return The most accurate and / or timely previously detected location.
 	 */
 	@Override
-	public Location getLastBestLocation(int minDistance, long minTime) {
-		Location bestResult = null;
-		float bestAccuracy = Float.MAX_VALUE;
-		long bestTime = Long.MIN_VALUE;
+	 public Location getLastBestLocation(int minDistance, long minTime) {
+	    Location bestResult = null;
+	    float bestAccuracy = Float.MAX_VALUE;
+	    long bestTime = Long.MIN_VALUE;
+	    
+	    // Iterate through all the providers on the system, keeping
+	    // note of the most accurate result within the acceptable time limit.
+	    // If no result is found within maxTime, return the newest Location.
+	    List<String> matchingProviders = locationManager.getAllProviders();
+	    for (String provider: matchingProviders) {
+	      Location location = locationManager.getLastKnownLocation(provider);
+	      if (location != null) {
+	        float accuracy = location.getAccuracy();
+	        long time = location.getTime();
+	        
+	        if ((time > minTime && accuracy < bestAccuracy)) {
+	          bestResult = location;
+	          bestAccuracy = accuracy;
+	          bestTime = time;
+	        }
+	        else if (time < minTime && bestAccuracy == Float.MAX_VALUE && time > bestTime) {
+	          bestResult = location;
+	          bestTime = time;
+	        }
+	      }
+	    }
 
-		/*Iterate through all the providers on the system, keeping note of the most 
-		accurate result within the acceptable time limit.If no result is found within maxTime,
-		return the newest Location.*/
-		
-		List<String> matchingProviders = locationManager.getAllProviders();
-		for (String provider : matchingProviders) {
-			Location location = locationManager.getLastKnownLocation(provider);
-			if (location != null) {
-				float accuracy = location.getAccuracy();
-				long time = location.getTime();
+		/*
+		 * If the best result is beyond the allowed time limit, or the accuracy
+		 * of the best result is wider than the acceptable maximum distance,
+		 * request a single update. This check simply implements the same
+		 * conditions we set when requesting regular location updates every
+		 * [minTime] and [minDistance].
+		 */
 
-				if ((time > minTime && accuracy < bestAccuracy)) {
-					bestResult = location;
-					bestAccuracy = accuracy;
-					bestTime = time;
-				} else if (time < minTime && bestAccuracy == Float.MAX_VALUE
-						&& time > bestTime) {
-					bestResult = location;
-					bestTime = time;
-				}
-			}
-		}
-
-		/*If the best result is beyond the allowed time limit, or the accuracy
-		 of the best result is wider than the acceptable maximum distance, request a
-		 single update. This check simply implements the same conditions we set when
-		 requesting regular location updates every [minTime] and [minDistance].*/
-		
 		if (locationListener != null
 				&& (bestTime < minTime || bestAccuracy > minDistance)) {
 			IntentFilter locIntentFilter = new IntentFilter(SINGLE_LOC_UPDATE);
@@ -144,6 +147,7 @@ public class GBLastLocFinder implements ILastLocationFinder {
 	 */
 	@Override
 	public void cancel() {
+		//context.unregisterReceiver(singleUpdateReceiver);
 		locationManager.removeUpdates(singleUpatePI);
 	}
 

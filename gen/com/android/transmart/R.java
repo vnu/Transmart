@@ -10,48 +10,86 @@ package com.android.transmart;
 public final class R {
     public static final class attr {
     }
+    public static final class bool {
+        public static final int froyo_or_later=0x7f040000;
+        public static final int pre_froyo=0x7f040001;
+    }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int icon=0x7f020001;
+        public static final int powered_by_google_on_black=0x7f020002;
+        public static final int powered_by_google_on_white=0x7f020003;
     }
     public static final class id {
-        public static final int browser=0x7f050000;
-        public static final int downldmgr=0x7f050007;
-        public static final int download=0x7f050006;
-        public static final int home=0x7f050001;
-        public static final int locale=0x7f050003;
-        public static final int locateme=0x7f050008;
-        public static final int maps=0x7f050002;
-        public static final int profiler=0x7f050004;
-        public static final int service=0x7f050005;
-        public static final int strtService=0x7f05000a;
-        public static final int timer=0x7f050009;
+        public static final int accuracy=0x7f07000a;
+        public static final int altitude=0x7f07000b;
+        public static final int browser=0x7f070001;
+        public static final int checkin_button=0x7f070017;
+        public static final int checkin_fragment=0x7f070003;
+        public static final int checkin_place_name=0x7f070000;
+        public static final int currentLoc=0x7f070007;
+        public static final int detail_address=0x7f07001b;
+        public static final int detail_checkin_text=0x7f070018;
+        public static final int detail_fragment=0x7f070006;
+        public static final int detail_fragment_container=0x7f070005;
+        public static final int detail_name=0x7f070019;
+        public static final int detail_phone=0x7f07001a;
+        public static final int detail_rating=0x7f07001c;
+        public static final int detail_url=0x7f07001d;
+        public static final int downldmgr=0x7f070011;
+        public static final int download=0x7f070010;
+        public static final int home=0x7f070002;
+        public static final int latitude=0x7f070008;
+        public static final int list_fragment=0x7f070004;
+        public static final int locale=0x7f07000d;
+        public static final int locateme=0x7f070012;
+        public static final int longitude=0x7f070009;
+        public static final int main_fragment_container=0x7f070016;
+        public static final int maps=0x7f07000c;
+        public static final int powered_by_google=0x7f070015;
+        public static final int profiler=0x7f07000e;
+        public static final int refresh=0x7f07001e;
+        public static final int service=0x7f07000f;
+        public static final int strtService=0x7f070014;
+        public static final int timer=0x7f070013;
     }
     public static final class layout {
-        public static final int downldmgr=0x7f030000;
-        public static final int download=0x7f030001;
-        public static final int locateme=0x7f030002;
-        public static final int main=0x7f030003;
-        public static final int mynetwork=0x7f030004;
-        public static final int myservice=0x7f030005;
+        public static final int checkin_box=0x7f030000;
+        public static final int downldmgr=0x7f030001;
+        public static final int download=0x7f030002;
+        public static final int locale=0x7f030003;
+        public static final int locateme=0x7f030004;
+        public static final int main=0x7f030005;
+        public static final int mynetwork=0x7f030006;
+        public static final int myservice=0x7f030007;
+        public static final int nearby=0x7f030008;
+        public static final int place_detail=0x7f030009;
+    }
+    public static final class menu {
+        public static final int nearby_menu=0x7f060000;
     }
     public static final class string {
-        public static final int accuracy=0x7f04000c;
-        public static final int altitude=0x7f04000d;
-        public static final int app_name=0x7f040001;
-        public static final int currLoc=0x7f040009;
-        public static final int downldmgr=0x7f040004;
-        public static final int download=0x7f040003;
-        public static final int hello=0x7f040000;
-        public static final int home=0x7f040005;
-        public static final int lat=0x7f04000a;
-        public static final int lng=0x7f04000b;
-        public static final int locale=0x7f040010;
-        public static final int locateme=0x7f040008;
-        public static final int maps=0x7f04000f;
-        public static final int none=0x7f04000e;
-        public static final int profiler=0x7f040011;
-        public static final int service=0x7f040002;
-        public static final int strtservice=0x7f040006;
-        public static final int timermin=0x7f040007;
+        public static final int accuracy=0x7f05000c;
+        public static final int altitude=0x7f05000d;
+        public static final int app_name=0x7f050001;
+        public static final int backup_manager_key=0x7f050015;
+        public static final int checkin_button_text=0x7f050014;
+        public static final int checkin_text=0x7f050013;
+        public static final int currLoc=0x7f050009;
+        public static final int downldmgr=0x7f050004;
+        public static final int download=0x7f050003;
+        public static final int hello=0x7f050000;
+        public static final int home=0x7f050005;
+        public static final int lat=0x7f05000a;
+        public static final int lng=0x7f05000b;
+        public static final int locale=0x7f050010;
+        public static final int locateme=0x7f050008;
+        public static final int maps=0x7f05000f;
+        public static final int none=0x7f05000e;
+        public static final int profiler=0x7f050011;
+        public static final int refresh=0x7f050012;
+        public static final int service=0x7f050002;
+        public static final int strtservice=0x7f050006;
+        public static final int timermin=0x7f050007;
     }
 }

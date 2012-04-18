@@ -19,6 +19,10 @@ import android.util.Log;
  */
 public class TransmartService extends Service {
 	private int minutes;
+	protected static String latitude= null;
+	protected static String longitude = null;
+	protected static String altitude = null;
+	protected static String accuracy=null;
 	
 	
 	public void onCreate(){
@@ -42,7 +46,7 @@ public class TransmartService extends Service {
 		AlarmManager am= (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 		Intent TSIntent = new Intent(this,MyServiceReceiver.class);
 		PendingIntent pi = PendingIntent.getBroadcast(this,0,TSIntent,PendingIntent.FLAG_CANCEL_CURRENT);
-		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 30 * minutes, pi);
+		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 15 * minutes, pi);
         Log.i(Util.TAG,"Repeating Alarm set up with RTC_WAKEUP");
         
         
