@@ -19,8 +19,8 @@ import android.util.Log;
  */
 public class TransmartService extends Service {
 	private int minutes;
-	protected static String latitude= null;
-	protected static String longitude = null;
+	public static String latitude= null;
+	public static String longitude = null;
 	protected static String altitude = null;
 	protected static String accuracy=null;
 	
@@ -43,11 +43,12 @@ public class TransmartService extends Service {
 		Bundle bundle = intent.getExtras();
 		minutes = bundle.getInt("timer");
 		
+		
 		AlarmManager am= (AlarmManager)getSystemService(Context.ALARM_SERVICE);
 		Intent TSIntent = new Intent(this,MyServiceReceiver.class);
 		PendingIntent pi = PendingIntent.getBroadcast(this,0,TSIntent,PendingIntent.FLAG_CANCEL_CURRENT);
-		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 15 * minutes, pi);
-        Log.i(Util.TAG,"Repeating Alarm set up with RTC_WAKEUP");
+		am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60 * minutes, pi);
+        Log.i(Util.TAG,"Repeating Alarm set up with RTC_WAKEUP : "+minutes+" minutes. ");
         
         
 		return super.onStartCommand(intent, flags, startId);
@@ -60,5 +61,5 @@ public class TransmartService extends Service {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 }

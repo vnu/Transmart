@@ -105,9 +105,11 @@
         <receiver android:name=".receivers.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_CHANGED" />
             </intent-filter>
         </receiver>
-
         <provider
             android:name="com.android.transmart.providers.PlacesContentProvider"
             android:authorities="com.android.transmart.provider.places" />

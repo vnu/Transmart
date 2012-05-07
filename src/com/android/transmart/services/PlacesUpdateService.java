@@ -171,8 +171,10 @@ public class PlacesUpdateService extends IntentService {
         long lastLat = prefs.getLong(LocationConstants.SP_KEY_LAST_LIST_UPDATE_LAT, Long.MIN_VALUE);
         long lastLng = prefs.getLong(LocationConstants.SP_KEY_LAST_LIST_UPDATE_LNG, Long.MIN_VALUE);
         Location lastLocation = new Location(LocationConstants.CONSTRUCTED_LOCATION_PROVIDER);
+      
         lastLocation.setLatitude(lastLat);
         lastLocation.setLongitude(lastLng);
+        
         
         // If update time and distance bounds have been passed, do an update.
         if ((lastTime < System.currentTimeMillis()-LocationConstants.MAX_TIME) ||

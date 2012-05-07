@@ -147,7 +147,7 @@ public class GBLastLocFinder implements ILastLocationFinder {
 	 */
 	@Override
 	public void cancel() {
-		//context.unregisterReceiver(singleUpdateReceiver);
+		
 		locationManager.removeUpdates(singleUpatePI);
 	}
 
